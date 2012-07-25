@@ -172,7 +172,9 @@ Apache 2
 
 ==== **** ==== **** ==== **** ==== **** ==== **** ==== **** ==== **** ==== **** 
 
-> Wekelijks onderhoud aan de server
+> Onderhoud aan de server
+
+	- Eerst testen. Kijken wat geupdate word. NIET op poductie omgeving.
 
 	- Software up to date houden
 
