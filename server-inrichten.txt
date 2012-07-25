@@ -35,7 +35,7 @@ OS (Ubuntu 12.04 LTS)
 		sudo useradd -d /home/<username> -m <username>
 	    sudo passwd <username>
 
-	- admin gebruiker "sudo" rechten geven op Ubuntu 12.04 LTS, door toe te voegen aan groep "sudo"
+	- admin gebruiker "sudo" rechten geven (op Ubuntu 12.04 LTS), door toe te voegen aan groep "sudo"
 
 		sudo adduser <username> sudo
 
@@ -86,6 +86,10 @@ Firewall
 ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== 
 
 > Uncomplicated FireWall (UFW)
+
+	- installeren als deze dat nog niet is
+
+		apt-get install ufw -y
 
 	- veilig maken
 
