@@ -202,7 +202,11 @@ Apache 2
 
 > Onderhoud aan de server
 
-	- Eerst testen. Kijken wat geupdate word. NIET op poductie omgeving.
+	- Eerst testen.
+
+	- Kijken wat geupdate word.
+
+	- NIET direct op poductie omgeving.
 
 	- Software up to date houden
 
