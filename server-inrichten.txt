@@ -19,6 +19,7 @@ OS (Ubuntu 12.04 LTS)
 
 		LAMP server
 		openSSH
+		DNS
 
 		etc...
 
