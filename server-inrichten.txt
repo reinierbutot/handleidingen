@@ -20,6 +20,7 @@ OS (Ubuntu 12.04 LTS)
 		LAMP server
 		openSSH
 		DNS
+		Firewall
 
 		etc...
 
@@ -84,7 +85,22 @@ Firewall
 
 ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== 
 
-> 
+> Uncomplicated FireWall (UFW)
+
+	- veilig maken
+
+		sudo ufw default deny incoming
+		sudo ufw default deny outgoing
+
+	- regels invoeren
+
+		sudo ufw allow ssh
+		sudo ufw allow http
+		sudo ufw allow ftp
+
+	- aanzetten
+
+		sudo ufw enable
 
 ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== 
 
