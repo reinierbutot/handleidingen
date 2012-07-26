@@ -333,6 +333,10 @@ Wordpress
 
 		sudo chown -R reinier:www-data /pad/naar/de/wordpress/installatie
 
+	- of gebruik deze groep
+
+		sudo chown -R reinier:wwwadmin /pad/naar/de/wordpress/installatie
+
 	- zet alle rechten voor directories
 
 		find /pad/naar/de/wordpress/installatie -type d -exec chmod 755 {} \;
@@ -344,7 +348,7 @@ Wordpress
 
 		vim wp-content/uploads/.htaccess
 
-		# dit is het bestand zetten:
+		# dit in het bestand zetten:
 		php_value engine off
 
 	- zet alle rechten voor bestanden
