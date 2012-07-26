@@ -319,7 +319,7 @@ Wordpress
 
 	- aangeven in welke map WP dingen moet downloaden om wp-config.php
 
-		define('WP_TEMP_DIR', ABSPATH . 'wp-content/');
+		define('WP_TEMP_DIR', ABSPATH . 'wp-content/uploads');
 
 > Themas en plugins installeren
 
@@ -339,6 +339,13 @@ Wordpress
 
 		mkdir wp-content/uploads
 		chmod 777 wp-content/uploads
+
+	- zorgen dat php bestanden niet uitgevoerd kunnen worden
+
+		vim wp-content/uploads/.htaccess
+
+		# dit is het bestand zetten:
+		php_value engine off
 
 	- zet alle rechten voor bestanden
 
