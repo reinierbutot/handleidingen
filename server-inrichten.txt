@@ -159,14 +159,14 @@ Apache 2
 
 		</VirtualHost>
 
-	- bestandsnaam is www.reinierbutot.dev
+	- bestandsnaam is reinierbutot.dev
 
 		<VirtualHost *:80>
 		        ServerAdmin reinier@reinierbutot.dev
-		        ServerName  reinierbutot.dev
+		        ServerName  www.reinierbutot.dev
 
 				# ServerAlias ubuntur
-				ServerAlias www.reinierbutot.dev
+				ServerAlias reinierbutot.dev
 				ServerAlias *.reinierbutot.dev
 
 		        # Indexes + Directory Root.
@@ -178,11 +178,11 @@ Apache 2
 
 		- een site toevoegen aan de enabled sites
 
-			a2ensite www.reinierbutot.dev
+			a2ensite reinierbutot.dev
 
 		- een site verwijderen van de enabled sites
 
-			a2dissite www.reinierbutot.dev
+			a2dissite reinierbutot.dev
 
 		- de server herstarten na een wijziging
 
