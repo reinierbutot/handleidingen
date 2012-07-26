@@ -159,15 +159,15 @@ Apache 2
 
 		</VirtualHost>
 
-	- bestandsnaam is www.reinierbutot.nl
+	- bestandsnaam is www.reinierbutot.dev
 
 		<VirtualHost *:80>
-		        ServerAdmin reinier@reinierbutot.nl
-		        ServerName  reinierbutot.nl
+		        ServerAdmin reinier@reinierbutot.dev
+		        ServerName  reinierbutot.dev
 
 				# ServerAlias ubuntur
-				ServerAlias www.reinierbutot.nl
-				ServerAlias *.reinierbutot.nl
+				ServerAlias www.reinierbutot.dev
+				ServerAlias *.reinierbutot.dev
 
 		        # Indexes + Directory Root.
 		        DirectoryIndex index.php
@@ -178,11 +178,11 @@ Apache 2
 
 		- een site toevoegen aan de enabled sites
 
-			a2ensite www.reinierbutot.nl
+			a2ensite www.reinierbutot.dev
 
 		- een site verwijderen van de enabled sites
 
-			a2dissite www.reinierbutot.nl
+			a2dissite www.reinierbutot.dev
 
 		- de server herstarten na een wijziging
 
@@ -197,6 +197,16 @@ Apache 2
 	- voeg deze regel toe aan het einde (nog wel tussen de if-rewrite-module statements)
 
 		Options -Indexes
+
+> Hosts bestand /etc/hosts
+
+	- testdomein in hosts zetten
+
+		sudo vim /etc/hosts
+
+		192.168.1.124 reinierbutot.dev
+		# niet vergeten dat subdomeinen ook allemaal afgevangen moeten worden...
+		192.168.1.124 www.reinierbutot.dev
 
 ==== **** ==== **** ==== **** ==== **** ==== **** ==== **** ==== **** ==== **** 
 
