@@ -272,7 +272,7 @@ Wordpress
 	- cache mappen en bestanden aanmaken
 
 		mkdir reinierbutot.nl/wp-content/themes/striking/cache
-		mkdir reinierbutot.nl/wp-content/themes/striking/cache
+		mkdir reinierbutot.nl/wp-content/themes/striking/cache/images
 		touch mkdir reinierbutot.nl/wp-content/themes/striking/cache/style.css
 
 	- goede rechten en eigenaren toewijzen voor deze mappen en bestanden
@@ -336,6 +336,9 @@ Wordpress
 	- zet alle rechten voor directories
 
 		find /pad/naar/de/wordpress/installatie -type d -exec chmod 755 {} \;
+
+		mkdir wp-content/uploads
+		chmod 777 wp-content/uploads
 
 	- zet alle rechten voor bestanden
 
