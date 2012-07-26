@@ -315,6 +315,12 @@ Wordpress
 
 	- ga naar https://api.wordpress.org/secret-key/1.1/salt voor nieuwe keys; en voer ze in.
 
+> Automatische updates mogelijk maken
+
+	- aangeven in welke map WP dingen moet downloaden om wp-config.php
+
+		define('WP_TEMP_DIR', ABSPATH . 'wp-content/');
+
 > Themas en plugins installeren
 
 	- ...
