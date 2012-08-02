@@ -449,7 +449,7 @@ Wordpress
 
 	- als plugin nog steeds niet te zien is in het overzicht
 
-		eigenaar moet zijn: "bsteerne:wwwadmin"
+		eigenaar moet zijn: "reinierbutot:wwwadmin"
 
 ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== 
 
