@@ -1,3 +1,10 @@
+Handleiding;
+Vim commando's.
+
+aangemaakt: 26-7-2012
+
+==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== 
+
 j or Up Arrow 	Move the cursor up one line.
 k or Down Arrow 	Down one line.
 h or Left Arrow 	Left one character.

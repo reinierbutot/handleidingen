@@ -440,7 +440,16 @@ Wordpress
 
 	- thema updaten
 
+		checken of het werkt
+
 	- plugins updaten
+
+		checken of de geupdate plugins nog steeds werken
+		(check rechten; chmod en chown)
+
+	- als plugin nog steeds niet te zien is in het overzicht
+
+		eigenaar moet zijn: "bsteerne:wwwadmin"
 
 ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== 
 
