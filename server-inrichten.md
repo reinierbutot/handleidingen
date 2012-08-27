@@ -1,10 +1,11 @@
-Handleiding;
 # Een nieuwe server opzetten,
 met VirtualBox als de virtuele server.
 
 > aangemaakt: 23-7-2012
 
 > laatste update: 27-8-2012
+
+***
 
 # OS (Ubuntu 12.04 LTS)
 
@@ -50,6 +51,8 @@ etc...
 
 - http://denyhosts.sourceforge.net/
 
+***
+
 # SSH
 
 ### SSH op Client instellen:
@@ -71,6 +74,8 @@ etc...
 - de key op de goede (home dir van gebruker) plek zetten op de server
 
 		cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+
+***
 
 # Firewall
 
@@ -94,6 +99,8 @@ etc...
 - aanzetten
 
 		sudo ufw enable
+
+***
 
 # Apache 2
 
@@ -206,6 +213,8 @@ etc...
 		sudo aptitude update
 		sudo aptitude safe-upgrade
 
+***
+
 # MySQL
 
 ### Database aanmaken en toewijzen
@@ -227,6 +236,8 @@ etc...
 
 - database oude site exporteren met Sequel Pro naar .sql bestand
 - oude database tabellen importeren naar nieuwe database met Sequel Pro
+
+***
 
 # Wordpress
 
@@ -409,14 +420,14 @@ etc...
 
 - thema updaten
 
-> checken of het werkt
+	> checken of het werkt
 
 - plugins updaten
 
-> checken of de geupdate plugins nog steeds werken
-> (check rechten; chmod en chown)
+	> checken of de geupdate plugins nog steeds werken
+	> (check rechten; chmod en chown)
 
 - als plugin nog steeds niet te zien is in het overzicht
 
-> eigenaar moet zijn: "reinierbutot:wwwadmin"
+	> eigenaar moet zijn: "reinierbutot:wwwadmin"
 
