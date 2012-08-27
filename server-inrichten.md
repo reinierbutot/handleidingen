@@ -3,6 +3,7 @@ Handleiding;
 met VirtualBox als de virtuele server.
 
 > aangemaakt: 23-7-2012
+
 > laatste update: 27-8-2012
 
 # OS (Ubuntu 12.04 LTS)
