@@ -8,7 +8,6 @@ laatste update: 25-7-2012
 ====
 
 OS (Ubuntu 12.04 LTS)
-
 ====
 
 > OS installeren
