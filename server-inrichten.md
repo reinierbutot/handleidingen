@@ -1,11 +1,10 @@
 Handleiding;
-Een nieuwe server opzetten,
+# Een nieuwe server opzetten,
 met VirtualBox als de virtuele server.
 
-aangemaakt: 23-7-2012
-laatste update: 25-7-2012
+> aangemaakt: 23-7-2012
 
-====
+>laatste update: 25-7-2012
 
 # OS (Ubuntu 12.04 LTS)
 
@@ -28,60 +27,52 @@ laatste update: 25-7-2012
 
 ### OS configureren
 
-	- nieuwe gebruiker aanmaken
+- nieuwe gebruiker aanmaken
 
-		sudo useradd -d /home/<username> -m <username>
-	    sudo passwd <username>
+	sudo useradd -d /home/<username> -m <username>
+    sudo passwd <username>
 
-	- admin gebruiker "sudo" rechten geven (op Ubuntu 12.04 LTS), door toe te voegen aan groep "sudo"
+- admin gebruiker "sudo" rechten geven (op Ubuntu 12.04 LTS), door toe te voegen aan groep "sudo"
 
-		sudo adduser <username> sudo
+	sudo adduser <username> sudo
 
-	- ... op andere versies van Ubuntu heet deze groep misschien "admin"
+- ... op andere versies van Ubuntu heet deze groep misschien "admin"
 
-		sudo adduser <username> admin
+	sudo adduser <username> admin
 
-> "Intrusion Detection System" installeren?
+### "Intrusion Detection System" installeren?
 
-	- http://www.ossec.net/
+- http://www.ossec.net/
 
-	- http://phpids.org/
+- http://phpids.org/
 
-	- http://www.fail2ban.org/wiki/index.php/Main_Page
+- http://www.fail2ban.org/wiki/index.php/Main_Page
 
-	- http://denyhosts.sourceforge.net/
+- http://denyhosts.sourceforge.net/
 
-==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== 
+# SSH
 
-SSH
+### SSH op Client instellen:
 
-==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== 
+- maak de map aan of ga er naar toe:
 
-> SSH op Client instellen:
+	~/.ssh
 
-	- maak de map aan of ga er naar toe:
+- genereer een key en geef een sterk wachtwoord in:
 
-		~/.ssh
+	ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa
 
-	- genereer een key en geef een sterk wachtwoord in:
+### SSH op de server instellen:
 
-		ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa
+- de key kopieeren van je CLIENT naar de .ssh directory in je home directory op de server
 
-> SSH op de server instellen:
+	scp ~/.ssh/id_rsa.pub <user_name>@<server_address>:~/.ssh
 
-	- de key kopieeren van je CLIENT naar de .ssh directory in je home directory op de server
+- de key op de goede (home dir van gebruker) plek zetten op de server
 
-		scp ~/.ssh/id_rsa.pub <user_name>@<server_address>:~/.ssh
+	cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
-	- de key op de goede (home dir van gebruker) plek zetten op de server
-
-		cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-
-==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== 
-
-Firewall
-
-==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== 
+# Firewall
 
 > Uncomplicated FireWall (UFW)
 
