@@ -74,7 +74,7 @@ etc...
 
 # Firewall
 
-> Uncomplicated FireWall (UFW)
+### Uncomplicated FireWall (UFW)
 
 - installeren als deze dat nog niet is
 
