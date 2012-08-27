@@ -7,10 +7,9 @@ laatste update: 25-7-2012
 
 ====
 
-OS (Ubuntu 12.04 LTS)
-====
+# OS (Ubuntu 12.04 LTS)
 
-> OS installeren
+### OS installeren
 
 	- ISO downloaden, mounten en opstarten
 
@@ -27,7 +26,7 @@ OS (Ubuntu 12.04 LTS)
 
 	- kies voor "Install security updates automatically"
 
-> OS configureren
+### OS configureren
 
 	- nieuwe gebruiker aanmaken
 
