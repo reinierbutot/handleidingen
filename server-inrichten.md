@@ -3,42 +3,41 @@ Handleiding;
 met VirtualBox als de virtuele server.
 
 > aangemaakt: 23-7-2012
-
->laatste update: 25-7-2012
+> laatste update: 27-8-2012
 
 # OS (Ubuntu 12.04 LTS)
 
 ### OS installeren
 
-	- ISO downloaden, mounten en opstarten
+- ISO downloaden, mounten en opstarten
 
-	- optionele instllatie opties, kiezen iig voor
+- optionele instllatie opties, kiezen iig voor
 
-		LAMP server
-		openSSH
-		DNS
-		Firewall
+LAMP server
+openSSH
+DNS
+Firewall
 
-		etc...
+etc...
 
-	- sterke wachtwoorden ingeven voor alle nieuwe gebruikers en root
+- sterke wachtwoorden ingeven voor alle nieuwe gebruikers en root
 
-	- kies voor "Install security updates automatically"
+- kies voor "Install security updates automatically"
 
 ### OS configureren
 
 - nieuwe gebruiker aanmaken
 
-	sudo useradd -d /home/<username> -m <username>
-    sudo passwd <username>
+		sudo useradd -d /home/<username> -m <username>
+   	 sudo passwd <username>
 
 - admin gebruiker "sudo" rechten geven (op Ubuntu 12.04 LTS), door toe te voegen aan groep "sudo"
 
-	sudo adduser <username> sudo
+		sudo adduser <username> sudo
 
 - ... op andere versies van Ubuntu heet deze groep misschien "admin"
 
-	sudo adduser <username> admin
+		sudo adduser <username> admin
 
 ### "Intrusion Detection System" installeren?
 
@@ -56,64 +55,60 @@ met VirtualBox als de virtuele server.
 
 - maak de map aan of ga er naar toe:
 
-	~/.ssh
+		~/.ssh
 
 - genereer een key en geef een sterk wachtwoord in:
 
-	ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa
+		ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa
 
 ### SSH op de server instellen:
 
 - de key kopieeren van je CLIENT naar de .ssh directory in je home directory op de server
 
-	scp ~/.ssh/id_rsa.pub <user_name>@<server_address>:~/.ssh
+		scp ~/.ssh/id_rsa.pub <user_name>@<server_address>:~/.ssh
 
 - de key op de goede (home dir van gebruker) plek zetten op de server
 
-	cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+		cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
 # Firewall
 
 > Uncomplicated FireWall (UFW)
 
-	- installeren als deze dat nog niet is
+- installeren als deze dat nog niet is
 
 		apt-get install ufw -y
 
-	- veilig maken
+- veilig maken
 
 		sudo ufw default deny incoming
 		sudo ufw default deny outgoing
 
-	- regels invoeren
+- regels invoeren
 
 		sudo ufw allow ssh
 		sudo ufw allow http
 		sudo ufw allow ftp
 
-	- aanzetten
+- aanzetten
 
 		sudo ufw enable
 
-==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== 
+# Apache 2
 
-Apache 2
+### Modules en libraries installeren en aanzetten
 
-==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== 
-
-> Modules en libraries installeren en aanzetten
-
-	- GD2 Graphics Library installeren
+- GD2 Graphics Library installeren
 
 		sudo apt-get install php5-gd
 
-	- Rewrite module activeren
+- Rewrite module activeren
 
 		sudo a2enmod rewrite
 
-> bestanden aanmaken voor elke site in de map /etc/apache2/sites-available
+### bestanden aanmaken voor elke site in de map /etc/apache2/sites-available
 
-	- bestandsnaam is default
+- bestandsnaam is default
 
 		<VirtualHost *:80>
 		        ServerAdmin webmaster@localhost
@@ -148,7 +143,7 @@ Apache 2
 
 		</VirtualHost>
 
-	- bestandsnaam is reinierbutot.dev
+- bestandsnaam is reinierbutot.dev
 
 		<VirtualHost *:80>
 		        ServerAdmin reinier@reinierbutot.dev
@@ -163,33 +158,33 @@ Apache 2
 		        DocumentRoot /var/www/sites/reinierbutot.nl/
 		</VirtualHost>
 
-> sites-enabled
+### sites-enabled
 
-		- een site toevoegen aan de enabled sites
+- een site toevoegen aan de enabled sites
 
 			a2ensite reinierbutot.dev
 
-		- een site verwijderen van de enabled sites
+- een site verwijderen van de enabled sites
 
 			a2dissite reinierbutot.dev
 
-		- de server herstarten na een wijziging
+- de server herstarten na een wijziging
 
 			sudo service apache2 restart
 
-> Zorgen dat directories niet ingekeken kunnen worden
+### Zorgen dat directories niet ingekeken kunnen worden
 
-	- .htaccess openen
+- .htaccess openen
 
 		vim .htaccess
 
-	- voeg deze regel toe aan het einde (nog wel tussen de if-rewrite-module statements)
+- voeg deze regel toe aan het einde (nog wel tussen de if-rewrite-module statements)
 
 		Options -Indexes
 
-> Hosts bestand /etc/hosts
+### Hosts bestand /etc/hosts
 
-	- testdomein in hosts zetten
+- testdomein in hosts zetten
 
 		sudo vim /etc/hosts
 
@@ -197,154 +192,140 @@ Apache 2
 		# niet vergeten dat subdomeinen ook allemaal afgevangen moeten worden...
 		192.168.1.124 www.reinierbutot.dev
 
-==== **** ==== **** ==== **** ==== **** ==== **** ==== **** ==== **** ==== **** 
+### Onderhoud aan de server
 
-> Onderhoud aan de server
+- Eerst testen.
 
-	- Eerst testen.
+- Kijken wat geupdate word.
 
-	- Kijken wat geupdate word.
+- NIET direct op poductie omgeving.
 
-	- NIET direct op poductie omgeving.
-
-	- Software up to date houden
+- Software up to date houden
 
 		sudo aptitude update
 		sudo aptitude safe-upgrade
 
-==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== 
+# MySQL
 
-MySQL
+### Database aanmaken en toewijzen
 
-==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== 
-
-> Database aanmaken en toewijzen
-
-	- inloggen als root in MySQL
+- inloggen als root in MySQL
 
 		mysql -u root -p
 
-	- nieuwe (wordpress) gebruiker aanmaken met mysql
+- nieuwe (wordpress) gebruiker aanmaken met mysql
 
 		create user 'dbgebruikersnaam' identified by 'wachtwoord';
 
-	- database aanaken en toewijzen aan de wordpress gebruiker
+- database aanaken en toewijzen aan de wordpress gebruiker
 
 		create database dbnaaam;
 		grant usage on *.* to dbgebruikersnaam@localhost identified by 'wachtwoord';
 		grant all privileges on ixly.* to dbgebruikersnaam@localhost;
 		exit
 
-	- database oude site exporteren met Sequel Pro naar .sql bestand
-	- oude database tabellen importeren naar nieuwe database met Sequel Pro
+- database oude site exporteren met Sequel Pro naar .sql bestand
+- oude database tabellen importeren naar nieuwe database met Sequel Pro
 
-==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== 
+# Wordpress
 
-Wordpress
+### Bestanden van oude server over zetten
 
-==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== 
-
-> Bestanden van oude server over zetten
-
-	- map tarren (zonder cache map, want dat is niet nodig)
+- map tarren (zonder cache map, want dat is niet nodig)
 
 		tar -pczf reinierbutot.nl.tar.gz reinierbutot.nl/ --exclude "reinierbutot.nl/wp-content/themes/striking/cache"
 
-	- tar bal kopieeren van live naar x
+- tar bal kopieeren van live naar x
 
 		scp reinierbutot.nl.tar.gz <user_name>@<server_address>:/var/www/sites
 
-	- tar bal uitpakken op x
+- tar bal uitpakken op x
 
 		tar xvfz reinierbutot.nl.tar.gz
 
-	- cache mappen en bestanden aanmaken
+- cache mappen en bestanden aanmaken
 
 		mkdir reinierbutot.nl/wp-content/themes/striking/cache
 		mkdir reinierbutot.nl/wp-content/themes/striking/cache/images
 		touch mkdir reinierbutot.nl/wp-content/themes/striking/cache/style.css
 
-	- goede rechten en eigenaren toewijzen voor deze mappen en bestanden
+- goede rechten en eigenaren toewijzen voor deze mappen en bestanden
 
 		sudo chown -R reinier:www-data cache
 		sudo chmod 777 reinierbutot.nl/wp-content/themes/striking/cache
 
-==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== 
+### Of nieuwe Wordpress downloaden als dat nodig is
 
-> Of nieuwe Wordpress downloaden als dat nodig is
-
-	- nieuwste versie van wordpress downloaden
+- nieuwste versie van wordpress downloaden
 
 		wget http://wordpress.org/latest.tar.gz
 
-	- wordpress uitpakken
+- wordpress uitpakken
 
 		tar xfz latest.tar.gz 
 
-	- bestanden op de juiste plek (huidige directory) zetten
+- bestanden op de juiste plek (huidige directory) zetten
 
 		mv wordpress/* ./
 
-	- bestanden verwijderen die niet meer nodig zijn
+- bestanden verwijderen die niet meer nodig zijn
 
 		rmdir ./wordpress/
 		rm -f latest.tar.gz
 
-> Wordpress installeren
+### Wordpress installeren
 
-	- surf met de browser naar de website
+- surf met de browser naar de website
 
-	- alle gevraagde gegevens (gebruikers en databases) invoeren die je net hebt aangemaakt.
+- alle gevraagde gegevens (gebruikers en databases) invoeren die je net hebt aangemaakt.
 
-	- geef een andere naam dan admin op voor de admin gebruikersnaam!
+- geef een andere naam dan admin op voor de admin gebruikersnaam!
 
-	- geef de database tabellen een andere prefix dan de standaard!
+- geef de database tabellen een andere prefix dan de standaard!
 
-> Beveiliging keys in wp-config.php instellen
+### Beveiliging keys in wp-config.php instellen
 
-	- ga naar https://api.wordpress.org/secret-key/1.1/salt voor nieuwe keys; en voer ze in.
+- ga naar https://api.wordpress.org/secret-key/1.1/salt voor nieuwe keys; en voer ze in.
 
-> Automatische updates mogelijk maken
+### Automatische updates mogelijk maken
 
-	- aangeven in welke map WP dingen moet downloaden om wp-config.php
+- aangeven in welke map WP dingen moet downloaden om wp-config.php
 
 		define('WP_TEMP_DIR', ABSPATH . 'wp-content/uploads');
 
-> Themas en plugins installeren
+### Themas en plugins installeren
 
-	- ...
+- ...
 
-==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== 
+### Wordpress beveiligen
 
-> Wordpress beveiligen
-
-	- zet de eigenaren goed
+- zet de eigenaren goed
 
 		sudo chown -R reinier:www-data /pad/naar/de/wordpress/installatie
 
-	- of gebruik deze groep
+- of gebruik deze groep
 
 		sudo chown -R reinier:wwwadmin /pad/naar/de/wordpress/installatie
 
-	- zet alle rechten voor directories
+- zet alle rechten voor directories
 
 		find /pad/naar/de/wordpress/installatie -type d -exec chmod 755 {} \;
 
 		mkdir wp-content/uploads
 		chmod 777 wp-content/uploads
 
-	- zorgen dat php bestanden niet uitgevoerd kunnen worden
+- zorgen dat php bestanden niet uitgevoerd kunnen worden
 
 		vim wp-content/uploads/.htaccess
 
 		# dit in het bestand zetten:
 		php_value engine off
 
-	- zet alle rechten voor bestanden
+- zet alle rechten voor bestanden
 
 		find /pad/naar/de/wordpress/installatie -type f -exec chmod 644 {} \;
 
-	- wordpress versie uit thema bestand halen, voeg het volgende toe in de thema functions.php
+- wordpress versie uit thema bestand halen, voeg het volgende toe in de thema functions.php
 
 		// remove version info from head and feeds
 		function complete_version_removal() {
@@ -352,7 +333,7 @@ Wordpress
 		}
 		add_filter('the_generator', 'complete_version_removal');
 
-	- mogelijke beveiliging instellingen met .htaccess
+- mogelijke beveiliging instellingen met .htaccess
 
 		<IfModule mod_rewrite.c>
 		RewriteEngine On
@@ -380,7 +361,7 @@ Wordpress
 		...
 		# END WordPress
 
-	- nog meer mogelijke beveiliging met .htaccess
+- nog meer mogelijke beveiliging met .htaccess
 		 
 		#protect the htaccess file,
 		#this is done by default with apache config file,
@@ -402,7 +383,7 @@ Wordpress
 		deny from all
 		</files>
 
-	- Voeg dit toe aan robots.txt in de root van wordpress zodat zoekmachines dit niet indexeren
+- Voeg dit toe aan robots.txt in de root van wordpress zodat zoekmachines dit niet indexeren
 
 		User-agent: *
 		 
@@ -414,31 +395,27 @@ Wordpress
 		Disallow: /xmlrpc.php
 		Disallow: /wp-
 
-	- Zet het registreren van nieuwe gebruikers uit in de admin.
+- Zet het registreren van nieuwe gebruikers uit in de admin.
 
-	- Verwijder onnodige bestanden
+- Verwijder onnodige bestanden
 
 		readme.html
 		license.txt
 
-==== **** ==== **** ==== **** ==== **** ==== **** ==== **** ==== **** ==== **** 
+### Wekelijks onderhoud aan wordpress
 
-> Wekelijks onderhoud aan wordpress
+- wordpress updaten
 
-	- wordpress updaten
+- thema updaten
 
-	- thema updaten
+> checken of het werkt
 
-		checken of het werkt
+- plugins updaten
 
-	- plugins updaten
+> checken of de geupdate plugins nog steeds werken
+> (check rechten; chmod en chown)
 
-		checken of de geupdate plugins nog steeds werken
-		(check rechten; chmod en chown)
+- als plugin nog steeds niet te zien is in het overzicht
 
-	- als plugin nog steeds niet te zien is in het overzicht
-
-		eigenaar moet zijn: "reinierbutot:wwwadmin"
-
-==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== 
+> eigenaar moet zijn: "reinierbutot:wwwadmin"
 
