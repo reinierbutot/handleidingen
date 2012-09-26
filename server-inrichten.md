@@ -424,10 +424,10 @@ etc...
 
 - In wp-admin nieuwe update uploaden via ftp
 
-daarna:
-eigenaar goed zetten voor alle dirs en documenten,
-rechten goed zetten alle dirs
-en rechten goed zetten alle bestanden
+>daarna:
+>eigenaar goed zetten voor alle dirs en documenten,
+>rechten goed zetten alle dirs
+>en rechten goed zetten alle bestanden
 
 		sudo chown -R reinier:www-data /pad/naar/de/wordpress/installatie
 		find /pad/naar/de/wordpress/installatie -type d -exec chmod 755 {} \;
@@ -435,13 +435,13 @@ en rechten goed zetten alle bestanden
 		
 - rechten goed zetten voor 'uploads' dir
 
-sudo find /var/www/wp_sites/test-toolkit.nl/wp-content/uploads -type d -exec chmod 777 {} \;
+		sudo find /var/www/wp_sites/test-toolkit.nl/wp-content/uploads -type d -exec chmod 777 {} \;
 
 - rechten goed zetten voor thema STRIKING
 
-sudo chmod 777 /pad/naar/de/wordpress/installatie/wp-content/themes/striking/cache
-sudo chmod 777 /pad/naar/de/wordpress/installatie/wp-content/themes/striking/cache/images
-sudo chmod 777 /pad/naar/de/wordpress/installatie/wp-content/themes/striking/cache/skin.css
+		sudo chmod 777 /pad/naar/de/wordpress/installatie/wp-content/themes/striking/cache
+		sudo chmod 777 /pad/naar/de/wordpress/installatie/wp-content/themes/striking/cache/images
+		sudo chmod 777 /pad/naar/de/wordpress/installatie/wp-content/themes/striking/cache/skin.css
 
 ### Wekelijks onderhoud aan wordpress
 
