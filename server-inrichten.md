@@ -237,6 +237,12 @@ etc...
 - database oude site exporteren met Sequel Pro naar .sql bestand
 - oude database tabellen importeren naar nieuwe database met Sequel Pro
 
+### Maintenance
+
+- changing root password
+
+		sudo dpkg-reconfigure mysql-server-5.5
+
 ***
 
 # Wordpress
