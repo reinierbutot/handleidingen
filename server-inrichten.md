@@ -422,7 +422,21 @@ etc...
 
 ### Wekelijks onderhoud aan wordpress
 
-- wordpress updaten
+- wordpress autmoatisch updaten
+
+In wp-admin nieuwe update uploaden via ftp, daarna:
+
+> eigenaar goed zetten voor alle dirs en documenten
+> rechten goed zetten alle dirs
+> rechten goed zetten alle bestanden
+
+		sudo chown -R reinier:www-data /pad/naar/de/wordpress/installatie
+		find /pad/naar/de/wordpress/installatie -type d -exec chmod 755 {} \;
+		find /pad/naar/de/wordpress/installatie -type f -exec chmod 644 {} \;
+
+> rechten goed zetten voor 'uploads' dir
+
+		chmod 777 wp-content/uploads
 
 - thema updaten
 
