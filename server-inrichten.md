@@ -424,13 +424,18 @@ etc...
 
 - In wp-admin nieuwe update uploaden via ftp
 
->daarna:
->eigenaar goed zetten voor alle dirs en documenten,
->rechten goed zetten alle dirs
->en rechten goed zetten alle bestanden
+daarna:
+
+- eigenaar goed zetten voor alle dirs en documenten
 
 		sudo chown -R reinier:www-data /pad/naar/de/wordpress/installatie
+
+- rechten goed zetten alle dirs
+
 		find /pad/naar/de/wordpress/installatie -type d -exec chmod 755 {} \;
+
+- rechten goed zetten alle bestanden
+
 		find /pad/naar/de/wordpress/installatie -type f -exec chmod 644 {} \;
 		
 - rechten goed zetten voor 'uploads' dir
