@@ -435,7 +435,7 @@ etc...
 		
 - rechten goed zetten voor 'uploads' dir
 
-		sudo find /var/www/wp_sites/test-toolkit.nl/wp-content/uploads -type d -exec chmod 777 {} \;
+		sudo find /pad/naar/de/wordpress/installatie/wp-content/uploads -type d -exec chmod 777 {} \;
 
 - rechten goed zetten voor thema STRIKING
 
