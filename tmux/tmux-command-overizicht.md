@@ -66,8 +66,11 @@ Plakken van selectie
 		C-b, ]
 
 > Windows staan in onderin de 'status'-balk.
+
 > Elk 'window' kan uit meerdere 'panes' bestaan.
+
 > De standaard is dat een window maar 1 pane heeft.
+
 > Het laatste pane van een window sluiten, sluit ook het window.
 
 Maak een nieuw 'pane' aan in het huidige 'window'
