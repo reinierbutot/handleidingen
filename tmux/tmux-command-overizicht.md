@@ -1,11 +1,11 @@
 Maak nieuwe sessie aan:
-  tmux new-session -s {session-name}
+    tmux new-session -s {session-name}
 
 Verbind bestaande sessie met terminal
-  tmux attach-session -t {session-name}
+    tmux attach-session -t {session-name}
 
 Sessie losmaken van huidige terminal (d = detach)
-  C-b, d
+    C-b, d
 
 Nieuw scherm in sessie aanmaken (c = create)
   C-b, c
