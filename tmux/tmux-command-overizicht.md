@@ -50,10 +50,20 @@ tmux dialogen kun je allemaal annuleren door 'q' te typen.
 
 Kopieer modus
 		C-b, [
-		
+
 > Beweeg de cursor up of neer om naar het gedeelte te gaan dat je wil selecteren.
+
 Start met selecteren
-		Spatiebalk ????????????????
+
+		Spatiebalk ???
+
+Einde van selecteren
+
+		??? geen idee
+
+Plakken van selectie
+
+		C-b, ]
 
 > Windows staan in onderin de 'status'-balk.
 > Elk 'window' kan uit meerdere 'panes' bestaan.
