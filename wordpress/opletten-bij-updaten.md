@@ -6,6 +6,8 @@ ix
 
 - Letten op de font instellingen, want deze worden bij updates van het thema soms gereset.
 
+Alle overbodige fonts uitzetten, of verwijderen in de interface
+
 - Na het updaten van het thema altijd het cache resetten, via de instellingen van het thema zelf.
 
 - Na het updaten kan het voorkomen dat
