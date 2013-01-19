@@ -73,9 +73,13 @@ Plakken van selectie
 
 > Het laatste pane van een window sluiten, sluit ook het window.
 
-Maak een nieuw 'pane' aan in het huidige 'window'
+Split het huidige 'window' horizontaal
 
 		C-b, "
+
+Split het huidige 'window' verticaal
+
+		Ctrl-b, %
 
 Wisselen tussen de panes
 
