@@ -24,16 +24,16 @@ rows_in_csv = 0
 cols_in_csv = 0
 old_number_of_rows = ws.num_rows
 old_number_of_cols = ws.num_cols
-did_once = false
+csv_cols_counted = false
 
 CSV.foreach(gdoc['file']) do |row|
   row.each_with_index do |row_item,index_item|
     ws[rows_in_csv+1,index_item+1] = row_item
   end
   
-  if did_once == false
-  	cols_in_csv = row.length
-  	did_once = true
+  if csv_cols_counted == false
+    cols_in_csv = row.length
+    csv_cols_counted = true
   end
 
   rows_in_csv+=1
@@ -41,7 +41,6 @@ end
 
 puts "... Deleting obsolete data, if present"
 
-#rows
 if old_number_of_rows > rows_in_csv
   for row in rows_in_csv+1..old_number_of_rows
     for col in 1..old_number_of_cols
@@ -49,7 +48,6 @@ if old_number_of_rows > rows_in_csv
     end
   end
 end
-#cols
 if old_number_of_cols > cols_in_csv
   for row in 1..old_number_of_rows
     for col in cols_in_csv+1..old_number_of_cols
